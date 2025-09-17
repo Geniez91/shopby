@@ -5,6 +5,7 @@
  */
 
 // Composables
+import Account from '@/components/Account.vue'
 import ArticleDetail from '@/components/ArticleDetail.vue'
 import ArticleSearch from '@/components/ArticleSearch.vue'
 import Home from '@/components/Home.vue'
@@ -22,6 +23,10 @@ const routes=[
   {
     path:'/article/:id',
     component:ArticleDetail
+  },
+  {
+    path:'/account',
+    component:Account
   }
 ]
 const router = createRouter({
