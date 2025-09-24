@@ -59,7 +59,7 @@
                             <div class="my-4">{{ value.name }}</div>
                             <div class="my-4">{{ value.price }} €</div>
                             <div>
-                                <v-btn color="warning">Ajouter au panier</v-btn>
+                                <v-btn color="warning" @click="articleStore.addArticleToCart(value)">Ajouter au panier</v-btn>
                             </div>
                         </div>
                     </v-card>
@@ -76,7 +76,8 @@
 import { CATEGORY_ARTICLES } from "@/constants/article.constant";
 import { ARTICLES } from "@/constants/article.constant";
 import type { IArticle } from "@/interfaces/article.interface";
-import { computed, ref } from "vue";
+import { useArticleStore } from "@/store/article.store";
+import { computed, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 const ratingMax=5;
 const searchFilter=ref<string[]>([])
@@ -88,11 +89,7 @@ const currentRate=ref<string>('')
 const currentDate=ref<string>('')
 const page = ref(1)
 const itemsPerPage = 20; 
-
-
-
-
-
+const articleStore = useArticleStore()
 const priceRange=ref<[number,number]>()
 const dateCriteria:string[]=[`Moins d'un an`,`1 à 5 ans`,`Plus de 5 ans`]
 

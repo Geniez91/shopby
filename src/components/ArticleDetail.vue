@@ -35,10 +35,10 @@
                         </v-col>
                         <v-col>
                             <div>
-                <p>Samsung A25</p>
+                <p>{{ article.name }}</p>
                 <v-rating
   readonly
-  :length="5"
+  :length="article.averageRating"
   :size="26"
   :model-value="3"
   active-color="primary"
@@ -63,12 +63,27 @@
                 <v-col>
                 <v-card class="bg-grey pa-3">
                     <div class="my-3">Etat : Neuf</div>
-                    <div class="my-3">559€</div>
-                    <div class="my-3">Quantité : 3</div>
+                    <div class="my-3">{{ article.price }}€</div>
+                    <div class="my-3">Quantité : {{ article.quantity }}</div>
                     <div class="d-flex flex-column">
-                    <v-btn class="my-2" color="yellow">Ajouter au panier</v-btn>
+                    <v-btn class="my-2" color="yellow" @click="articleStore.addArticleToCart(article)">Ajouter au panier</v-btn>
                     <v-btn class="my-2" color="orange">Acheter maintenant</v-btn>
-                    <v-btn class="my-2" color="blue">Ajouter à votre liste</v-btn>
+                    <v-menu open-on-hover>
+                           <template v-slot:activator="{ props }">
+                            <v-btn class="my-2" color="blue" v-bind="props" append-icon="mdi-plus">Ajouter à votre liste</v-btn>
+                           </template>
+                            <v-list>
+        <v-list-item
+          v-for="(item, index) in listStore.list"
+          :key="index"
+          :value="index"
+          :prepend-avatar="item.img"
+          @click="addArticleToList(index)"
+        >
+          <v-list-item-title>{{ item.name }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+                    </v-menu>
                     </div>
 
                 </v-card>
@@ -171,7 +186,6 @@
             </v-row>
 
         <div class="d-flex">
-           
         </div>
         </v-card>
        
@@ -181,4 +195,20 @@
 <script lang="ts" setup>
     import Smartphone from '@/assets/smartphone.jpg';
     import FrenchFlag from '@/assets/FlagFrance.png';
+import { useArticleStore } from '@/store/article.store';
+import { computed, ref } from 'vue';
+import {getArticleById } from '@/services/article.service'
+import { useRoute } from 'vue-router';
+import { ARTICLES } from "@/constants/article.constant";
+import { useListStore } from '@/store/list.store';
+
+const listStore = useListStore();
+const route = useRoute();
+const articleId = ref<string>(route.params.id as string ?? '');
+const articleStore = useArticleStore()
+const article = computed(() => getArticleById(Number(articleId.value), ARTICLES));
+
+function addArticleToList(index:number){
+    listStore.list[index].articles.push(article.value)
+}
 </script>
