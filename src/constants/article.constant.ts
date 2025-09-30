@@ -23,7 +23,7 @@ export const ARTICLES:IArticle[]=[{
 {
     id: 2,
     averageRating: 2,
-    name: "Samsung A25",
+    name: "Samsung A24",
     category: CATEGORY_ARTICLES[0],
     price: 420,
     date: new Date('2025-09-01'),
@@ -35,7 +35,7 @@ export const ARTICLES:IArticle[]=[{
 {
     id: 3,
     averageRating: 1,
-    name: "Samsung A25",
+    name: "Samsung A23",
     category: CATEGORY_ARTICLES[0],
     price: 500,
     date: new Date('2023-01-01'),
@@ -47,7 +47,7 @@ export const ARTICLES:IArticle[]=[{
 {
     id: 4,
     averageRating: 5,
-    name: "Samsung A25",
+    name: "Samsung A22",
     category: CATEGORY_ARTICLES[0],
     price: 500,
     date: new Date('2023-01-01'),
@@ -59,7 +59,7 @@ export const ARTICLES:IArticle[]=[{
 {
     id: 5,
     averageRating: 5,
-    name: "Samsung A25",
+    name: "Samsung A21",
     category: CATEGORY_ARTICLES[0],
     price: 500,
     date: new Date('2023-01-01'),
@@ -71,7 +71,7 @@ export const ARTICLES:IArticle[]=[{
 {
     id: 6,
     averageRating: 5,
-    name: "Samsung A25",
+    name: "Samsung A20",
     category: CATEGORY_ARTICLES[0],
     price: 500,
     date: new Date('2023-01-01'),
@@ -83,7 +83,7 @@ export const ARTICLES:IArticle[]=[{
 {
     id: 7,
     averageRating: 5,
-    name: "Samsung A25",
+    name: "Samsung A19",
     category: CATEGORY_ARTICLES[0],
     price: 500,
     date: new Date('2023-01-01'),
@@ -95,7 +95,7 @@ export const ARTICLES:IArticle[]=[{
 {
     id: 8,
     averageRating: 5,
-    name: "Samsung A25",
+    name: "Samsung A01",
     category: CATEGORY_ARTICLES[0],
     price: 500,
     date: new Date('2024-05-01T10:20:30Z'),
@@ -107,7 +107,7 @@ export const ARTICLES:IArticle[]=[{
 {
     id: 9,
     averageRating: 5,
-    name: "Samsung A25",
+    name: "Samsung A02",
     category: CATEGORY_ARTICLES[0],
     price: 500,
     date: new Date('2020-01-01'),
@@ -119,7 +119,7 @@ export const ARTICLES:IArticle[]=[{
 {
     id: 10,
     averageRating: 5,
-    name: "Samsung A25",
+    name: "Samsung A03",
     category: CATEGORY_ARTICLES[0],
     price: 500,
     date: new Date('2024-05-01T10:20:30Z'),
@@ -131,7 +131,7 @@ export const ARTICLES:IArticle[]=[{
 {
     id: 11,
     averageRating: 5,
-    name: "Samsung A25",
+    name: "Samsung A05",
     category: CATEGORY_ARTICLES[0],
     price: 500,
     date: new Date('2025-01-01'),
@@ -143,7 +143,7 @@ export const ARTICLES:IArticle[]=[{
 {
     id: 12,
     averageRating: 5,
-    name: "Samsung A25",
+    name: "Samsung A30",
     category: CATEGORY_ARTICLES[0],
     price: 50,
     date: new Date('2025-09-01'),
@@ -155,7 +155,7 @@ export const ARTICLES:IArticle[]=[{
 {
     id: 13,
     averageRating: 5,
-    name: "Samsung A25",
+    name: "Samsung A06",
     category: CATEGORY_ARTICLES[0],
     price: 500,
     date: new Date('2025-01-01'),
@@ -167,7 +167,7 @@ export const ARTICLES:IArticle[]=[{
 {
     id: 14,
     averageRating: 5,
-    name: "Samsung A25",
+    name: "Samsung A07",
     category: CATEGORY_ARTICLES[0],
     price: 500,
     date: new Date('2025-09-01'),
@@ -179,7 +179,7 @@ export const ARTICLES:IArticle[]=[{
 {
     id: 15,
     averageRating: 5,
-    name: "Samsung A25",
+    name: "Samsung A08",
     category: CATEGORY_ARTICLES[0],
     price: 500,
     date: new Date('2022-01-01'),
@@ -191,7 +191,7 @@ export const ARTICLES:IArticle[]=[{
 {
     id: 16,
     averageRating: 5,
-    name: "Samsung A25",
+    name: "Samsung A09",
     category: CATEGORY_ARTICLES[0],
     price: 500,
     date: new Date('2024-05-01T10:20:30Z'),
@@ -203,7 +203,7 @@ export const ARTICLES:IArticle[]=[{
 {
     id: 17,
     averageRating: 5,
-    name: "Samsung A25",
+    name: "Samsung A10",
     category: CATEGORY_ARTICLES[0],
     price: 500,
     date: new Date('2024-05-01T10:20:30Z'),
@@ -215,7 +215,7 @@ export const ARTICLES:IArticle[]=[{
 {
     id: 18,
     averageRating: 5,
-    name: "Samsung A25",
+    name: "Samsung A11",
     category: CATEGORY_ARTICLES[0],
     price: 500,
     date: new Date('2024-05-01T10:20:30Z'),
@@ -227,7 +227,7 @@ export const ARTICLES:IArticle[]=[{
 {
     id: 19,
     averageRating: 5,
-    name: "Samsung A25",
+    name: "Samsung A12",
     category: CATEGORY_ARTICLES[0],
     price: 500,
     date: new Date('2022-01-01'),
@@ -239,7 +239,7 @@ export const ARTICLES:IArticle[]=[{
 {
     id: 20,
     averageRating: 5,
-    name: "Samsung A25",
+    name: "Samsung A13",
     category: CATEGORY_ARTICLES[0],
     price: 500,
     date: new Date('2023-01-01'),
@@ -251,7 +251,7 @@ export const ARTICLES:IArticle[]=[{
 {
     id: 21,
     averageRating: 5,
-    name: "Samsung A25",
+    name: "Samsung A14",
     category: CATEGORY_ARTICLES[0],
     price: 500,
     date: new Date('2023-01-01'),
@@ -263,7 +263,7 @@ export const ARTICLES:IArticle[]=[{
 {
     id: 22,
     averageRating: 5,
-    name: "Samsung A25",
+    name: "Samsung A15",
     category: CATEGORY_ARTICLES[0],
     price: 500,
     date: new Date('2023-01-01'),

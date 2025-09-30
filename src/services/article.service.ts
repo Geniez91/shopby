@@ -35,3 +35,7 @@ export function getFirstFiveArticlesByDate(articles:IArticle[]):IArticle[]{
     const sortedArticles=getSortedArticlesByDate(articles)
     return sortedArticles.slice(0,5)
 }
+
+export function getArticleById(id:number, articles:IArticle[]):IArticle{
+    return articles.find(a=>a.id===id) as IArticle
+}

@@ -5,11 +5,11 @@
             <v-col>
                 <v-card color="white"> <h6 class="text-h6 text-center" style="text-decoration: underline;">Mes informations personnelles</h6>
                 <div class="text-center mt-2">
-                    <div>Nom : Weltmann</div>
-                    <div class="my-2">Prénom : Jérémy</div>
-                    <div class="my-2">Pays : France</div>
-                    <div class="my-2">Adresse Mail : weltmannjeremy@gmail.com</div>
-                    <div class="my-2">Téléphone : 06 46 87 54 08 </div>
+                    <div>Nom : {{ ACCOUNT.lastName }}</div>
+                    <div class="my-2">Prénom : {{ ACCOUNT.firstName }}</div>
+                    <div class="my-2">Pays : {{ ACCOUNT.country }}</div>
+                    <div class="my-2">Adresse Mail : {{ ACCOUNT.email }}</div>
+                    <div class="my-2">Téléphone : {{ ACCOUNT.phone }}</div>
                 </div>
                 </v-card>
             </v-col>
@@ -28,9 +28,11 @@
             <v-col>
 <v-card height="200px" class="d-flex justify-center align-center" color="white">
     <div>
-  <div>Vos commandes</div>
-  <v-img  height="130" :src="Carton"></v-img>
-  </div>
+        <router-link to="/historic-order" style="text-decoration: none; color: black;">
+            <div>Vos commandes</div>
+            <v-img  height="130" :src="Carton"></v-img>
+        </router-link>
+    </div>
 </v-card>
 
             </v-col>
@@ -68,4 +70,5 @@ import Carton from '@/assets/carton.png'
 import { ARTICLES } from "@/constants/article.constant";
 import { getFirstFiveArticlesByDate } from '@/services/article.service'
 import List from '../assets/list.jpg'
+import { ACCOUNT } from '@/constants/account.constant';
 </script>

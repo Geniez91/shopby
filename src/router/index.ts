@@ -8,8 +8,12 @@
 import Account from '@/components/Account.vue'
 import ArticleDetail from '@/components/ArticleDetail.vue'
 import ArticleSearch from '@/components/ArticleSearch.vue'
+import Cart from '@/components/Cart.vue'
 import Home from '@/components/Home.vue'
+import List from '@/components/List.vue'
 import { createRouter, createWebHistory } from 'vue-router/auto'
+import HistoricOrder from '@/components/HistoricOrder.vue'
+import Order from '@/components/Order.vue'
 
 
 const routes=[
@@ -27,6 +31,22 @@ const routes=[
   {
     path:'/account',
     component:Account
+  },
+  {
+    path:'/cart',
+    component:Cart
+  },
+  {
+    path:'/list',
+    component:List
+  },
+  {
+    path:'/historic-order',
+    component:HistoricOrder
+  },
+  {
+    path:'/order',
+    component:Order
   }
 ]
 const router = createRouter({

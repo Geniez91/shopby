@@ -4,7 +4,7 @@
       <v-icon>mdi-menu</v-icon>
     </v-btn>
 <div class="d-flex align-center mx-4">
-  <a href="/" class="text-h4 mb-0 text-yellow" style="text-decoration: underline;">ShopBy</a>
+  <router-link to="/" class="text-h4 mb-0 text-yellow" style="text-decoration: underline;">ShopBy</router-link>
   <v-img
     :src="ShopByIcon"
     alt="ShopBy Logo"
@@ -45,38 +45,46 @@
     <p class="mx-1">FR</p>
     </div>
     <div class="d-flex flex-column align-center mx-4">
-      <a href="/account" style="text-decoration: underline;">
+      <router-link to="/account" style="text-decoration: none; color: #000;">
     <v-icon icon="mdi-account-circle" width="72" height="72"></v-icon>
     Mon Compte
-    </a>
+    </router-link>
     </div>
        <div class="d-flex flex-column align-center mx-4">
+          <router-link class="d-flex" to="/cart" style="text-decoration: none; color: #000;">
   <v-img
     :src="ShopByIcon"
     alt="ShopBy Logo"
     width="25"
     height="25"
-    class="ml-3"
+    class="mx-3"
   />
     Panier
+ {{ articles.length }}
+          </router-link>
+ 
     </div>
     
   </v-app-bar>
   <v-navigation-drawer color="navbar" v-model="drawer" temporary class="d-md-none">
   </v-navigation-drawer>
+        
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import ShopByIcon from '../assets/shopbyIcon.png'
 import { useDisplay } from 'vuetify';
 import FlagFrance from '../assets/FlagFrance.png'
 import { useRouter } from 'vue-router';
 import {ARTICLES, CATEGORY_ARTICLES} from '@/constants/article.constant'
+import { useArticleStore } from '@/store/article.store';
 const drawer = ref(false)
 const{mdAndUp}=useDisplay()
 const valueSearch=ref('')
 const router = useRouter();
+const articleStore = useArticleStore();
+const articles = computed(() => articleStore.articles);
 
 function transferdataToSearch():void{
   router.push({path:'/search',query:{

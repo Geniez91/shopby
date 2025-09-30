@@ -33,7 +33,7 @@
                 Total : {{ totalPrice }} €
             </div>
             <div>
-                  <v-btn class="my-2" color="yellow">Pässer la commande</v-btn>
+                  <v-btn class="my-2" color="yellow" to="/order">Pässer la commande</v-btn>
             </div>
         </div>
          <div class="d-flex flex-column align-center" v-else>
