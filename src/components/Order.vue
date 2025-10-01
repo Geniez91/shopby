@@ -104,7 +104,7 @@ const nom=ref<string>('');
 const codePromo=ref<string>('');
 const numeroCarte=ref<string>('');
 const cryptogramme=ref<string>('');
-const adresseLivraison=ref<string>(ACCOUNT.deliveryAdress);
+const adresseLivraison = ref<string>(ACCOUNT?.deliveryAdress ?? '');
 const isDisabledDeliviery=ref<boolean>(true);
 const articleStore = useArticleStore();
 const articles = computed(() => articleStore.articles);
@@ -114,8 +114,6 @@ const expYear = ref<string>('');
 const valid = ref(false)
 const commandStore=useCommandStore()
 const router = useRouter()
-
-
 const form = ref<VForm | null>(null)
 
 const cardRules = [

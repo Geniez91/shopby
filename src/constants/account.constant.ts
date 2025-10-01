@@ -7,6 +7,7 @@ export const ACCOUNT:IAccount = {
     email: "weltmannjeremy@gmail.com",
     password: "Azerty123",
     deliveryAdress:"6 rue Ernest Cousseran 91470 Limours France",
+    facturationAdress:"6 rue Ernest Cousseran 91470 Limours France",
     country: "France",
     phone:"0646875408"
 }
