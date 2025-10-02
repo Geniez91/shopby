@@ -5,15 +5,15 @@
  */
 
 // Composables
-import Account from '@/components/Account.vue'
-import ArticleDetail from '@/components/ArticleDetail.vue'
+import Account from '@/pages/Account.vue'
+import ArticleDetail from '@/pages/ArticleDetail.vue'
 import ArticleSearch from '@/components/ArticleSearch.vue'
-import Cart from '@/components/Cart.vue'
-import Home from '@/components/Home.vue'
-import List from '@/components/List.vue'
+import Cart from '@/pages/Cart.vue'
+import Home from '@/pages/Home.vue'
+import List from '@/pages/List.vue'
 import { createRouter, createWebHistory } from 'vue-router/auto'
-import HistoricOrder from '@/components/HistoricOrder.vue'
-import Order from '@/components/Order.vue'
+import HistoricOrder from '@/pages/HistoricOrder.vue'
+import Order from '@/pages/Order.vue'
 
 
 const routes=[

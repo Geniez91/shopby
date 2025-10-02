@@ -9,3 +9,11 @@ export interface Order{
     status:string;
     dateDelivery:Date;
 }
+
+export interface IOrderForm{
+    name:string;
+    cardNumber:string;
+    expMonth:string;
+    expYear:string;
+    cvv:string;
+}

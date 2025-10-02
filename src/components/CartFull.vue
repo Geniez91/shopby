@@ -1,6 +1,5 @@
 <template>
-   
-        <div class="d-flex flex-column align-center" v-if="articles.length > 0">
+            <div class="d-flex flex-column align-center">
             <v-card class="my-5 px-4" color="white" width="800" height="fit-content">
                 <p class="text-h5 text-center my-6">Panier</p>
                 <v-row v-for="value in articles" :key="value.id">
@@ -36,14 +35,8 @@
                   <v-btn class="my-2" color="yellow" to="/order">Pässer la commande</v-btn>
             </div>
         </div>
-         <div class="d-flex flex-column align-center" v-else>
-            <v-card class="my-5" color="white" width="800" height="100">
-                <p class="text-h5 text-center mt-6">Votre panier est vide</p>
-            </v-card>
-        </div>
 </template>
 <script lang="ts" setup>
-import Smartphone from '@/assets/smartphone.jpg';
 import { useArticleStore } from '@/store/article.store';
 import { computed } from 'vue';
 const articleStore = useArticleStore();
@@ -53,4 +46,3 @@ const totalPrice=computed(()=>{
     return articles.value.reduce((acc,article)=>acc+article.price,0)
 })
 </script>
-

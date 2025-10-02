@@ -1,23 +1,5 @@
 <template>
-    <div>
-    <div>Vos Commandes</div>
-    <v-tabs class="my-2" v-model="currentTabs">
-        <v-tab value="Commandes">Commandes</v-tab>
-        <v-tab value="En attente d'expédition">En attente d'expédition</v-tab>
-        <v-tab value="Acheter à nouveau">Acheter à nouveau</v-tab>
-    </v-tabs>
-    <div v-if="currentTabs==='Acheter à nouveau'">
-       <v-row class="my-3">
-        <v-col v-for="(value,index) in articlesAlreadyBuy" :key="index" cols="3">
-          <v-card color="white" class="pa-3">
-              <v-img :src="value.img" height="200px"></v-img>
-            <p class="text-center my-3">{{ value.name }}</p>
-          </v-card>
-        </v-col>
-       </v-row>
-    </div>
-    <div v-if="currentTabs!=='Acheter à nouveau'">
-    <p class="my-4">{{ commandStore.commands.length }} commandes passées</p>
+      <p class="my-4">{{ commandStore.commands.length }} commandes passées</p>
    
     <div  v-for="command in commandStore.commands" :key="command.id" >
          <v-divider class="my-8"></v-divider>
@@ -54,26 +36,17 @@
         </div>
         </v-card>
     </div>
-    </div>
-    </div>
 </template>
 <script lang="ts" setup>
 import Smartphone from '@/assets/smartphone.jpg';
 import type { TListArticle } from '@/interfaces/list.interface';
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 import Livraison from '@/assets/icon_livraison.png'
 import { useCommandStore } from '@/store/command.store';
 import { formatDateToDateWithoutTime } from '@/services/basic.service';
 
-const currentTabs=ref<TListArticle>('Commandes')
+const props=defineProps<{
+    currentTabs:TListArticle
+}>()
 const commandStore=useCommandStore()
-
-const articlesAlreadyBuy = computed(() => {
-  const allArticles = commandStore.commands.flatMap(c => c.articles);
-
-  return allArticles.filter(
-    (article, index, self) =>
-      index === self.findIndex(a => a.id === article.id)
-  );
-});
 </script>
