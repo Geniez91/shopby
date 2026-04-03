@@ -34,17 +34,8 @@
 </template>
 </v-autocomplete>
    <v-btn class="mx-2" variant="elevated"  color="orange" icon="mdi-search-web" @click="transferdataToSearch()"></v-btn>
-    <div class="d-flex align-center">
-    <v-img
-      :src="FlagFrance"
-      alt="French Flag"
-      width="52"
-      height="32"
-      class="ml-3"
-    />
-    <p class="mx-1">FR</p>
-    </div>
-    <div class="d-flex flex-column align-center mx-4">
+   <div v-if="isAuthenticated" class="d-flex align-center">
+      <div class="d-flex flex-column align-center mx-4">
       <router-link to="/account" style="text-decoration: none; color: #000;">
     <v-icon icon="mdi-account-circle" width="72" height="72"></v-icon>
     Mon Compte
@@ -62,9 +53,26 @@
     Panier
  {{ articles.length }}
           </router-link>
- 
+        
     </div>
+    <div class="d-flex flex-column align-center">
+      <v-btn  @click="handLogOut" style="color: #000;" prepend-icon="mdi-logout">Déconnexion</v-btn>
+    </div>
+   </div>
     
+
+    <div class="d-flex align-center mx-4" v-else>
+      <div class="d-flex flex-column align-center mx-4">
+      <router-link to="/login" style="text-decoration: none; color: #000;">
+           <v-icon icon="mdi-login" width="72" height="72"></v-icon>
+        Login</router-link>
+      </div>
+      <div class="d-flex flex-column align-center mx-4">
+      <router-link to="/register" style="text-decoration: none; color: #000;">
+           <v-icon icon="mdi-account" width="72" height="72"></v-icon>
+        S'inscrire</router-link>
+      </div>  
+</div>
   </v-app-bar>
   <v-navigation-drawer color="navbar" v-model="drawer" temporary class="d-md-none">
   </v-navigation-drawer>
@@ -72,19 +80,25 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, ref, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import ShopByIcon from '../assets/shopbyIcon.png'
 import { useDisplay } from 'vuetify';
-import FlagFrance from '../assets/FlagFrance.png'
 import { useRouter } from 'vue-router';
 import {ARTICLES, CATEGORY_ARTICLES} from '@/constants/article.constant'
 import { useArticleStore } from '@/store/article.store';
+import { useAccountStore } from '@/store/account.store';
+import { logoutUser } from '@/services/logout.service';
+
 const drawer = ref(false)
 const{mdAndUp}=useDisplay()
 const valueSearch=ref('')
 const router = useRouter();
 const articleStore = useArticleStore();
 const articles = computed(() => articleStore.articles);
+import { storeToRefs } from 'pinia'
+
+const accountStore = useAccountStore()
+const { isAuthenticated } = storeToRefs(accountStore)
 
 function transferdataToSearch():void{
   router.push({path:'/search',query:{
@@ -113,5 +127,11 @@ function onChangeSearchValue(selectedValue:string){
   else{
     router.push({path:'/search',query:{...router.currentRoute.value.query,name:value.label}})
   }
+}
+
+function handLogOut(){
+ logoutUser();
+  accountStore.logOut();
+  router.push('/login')
 }
 </script>

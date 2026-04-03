@@ -14,6 +14,10 @@ import List from '@/pages/List.vue'
 import { createRouter, createWebHistory } from 'vue-router/auto'
 import HistoricOrder from '@/pages/HistoricOrder.vue'
 import Order from '@/pages/Order.vue'
+import Register from '@/pages/Register.vue'
+import Activation from '@/pages/Activation.vue'
+import Login from '@/pages/Login.vue'
+import ForgetPassword from '@/pages/ForgetPassword.vue'
 
 
 const routes=[
@@ -47,6 +51,22 @@ const routes=[
   {
     path:'/order',
     component:Order
+  },
+  {
+    path:'/register',
+    component:Register
+  },
+  {
+    path:'/activation',
+    component:Activation
+  },
+  {
+    path:'/login',
+    component:Login
+  },
+  {
+    path:'/forgot-password',
+    component:ForgetPassword
   }
 ]
 const router = createRouter({
