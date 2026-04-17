@@ -47,19 +47,17 @@
 <script lang="ts" setup>
 import { COMMENTS } from '@/constants/comment.constant'
 import type { TComment } from '@/interfaces/comment.interface';
+import type { IArticle } from '@/interfaces/article.interface';
 import { formatDateToDateWithoutTime } from '@/services/basic.service'
 import { computed, ref } from 'vue'
 const currentTab=ref<TComment>('all')
-const allcomments=computed(()=>COMMENTS.filter((comment)=>comment.articleId===props.articleId));
+const allcomments=computed(()=>COMMENTS.filter((comment)=>comment.articleId===props.article.idArticle));
 const negativeComments=computed(()=>allcomments.value.filter((comment)=>comment.rating<3))
 const positiveComments=computed(()=>allcomments.value.filter((comment)=>comment.rating>=3))
 
-const props=defineProps({
-    articleId:{
-        type:Number,
-        required:true
-    }
-})
+const props=defineProps<{
+    article: IArticle
+}>()
 
 const selectionComments=computed(()=>{
     if(currentTab.value==='all'){

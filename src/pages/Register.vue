@@ -81,7 +81,7 @@ const countries = [
   'Italie'
 ]
 
-function handleRegisterUser(){
+async function handleRegisterUser(){
   const form: IRegisterInput = {
     nom: nom.value,
     prenom: prenom.value,
@@ -90,7 +90,7 @@ function handleRegisterUser(){
     email: email.value,
     password: password.value
   }  
-  registerUser(form);
+  await registerUser(form);
   router.push('/activation')
 }
 

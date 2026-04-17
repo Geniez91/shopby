@@ -9,7 +9,9 @@ const api=axios.create({
 
 api.interceptors.request.use(config=>{
  const token=localStorage.getItem("token");
- const publicRoutes = ["/login", "/register", "/activation","/reset-password"];
+ const publicRoutes = ["/article/latest","/login", "/register", "/activation","/reset-password","/article/"];
+  console.log(token)
+
 
   const isPublic = publicRoutes.some((url) =>
     config.url?.includes(url)

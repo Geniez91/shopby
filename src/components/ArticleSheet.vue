@@ -2,39 +2,24 @@
     <v-card class="bg-white">
             <v-row>
                 <v-col cols="9">
-                    <v-breadcrumbs :items="['Informatique', 'Téléphones', 'Samsung A25']"></v-breadcrumbs>
+                    <v-breadcrumbs :items="article.breadcrumb" ></v-breadcrumbs>
                     <v-row>
                         <v-col>
-                            <v-img :src="Smartphone" height="650px"></v-img>
+                            <v-img :src="BASE_URL + article.photos[0].url" height="650px"></v-img>
                             <div class="d-flex my-3">
                                 <v-img
+                                v-for="value in article.photos"
                                     :aspect-ratio="1"
                                     class=""
-                                    :src="Smartphone"
-                                    width="50"
-                                ></v-img>
-                                                                <v-img
-                                    :aspect-ratio="1"
-                                    class=""
-                                    :src="Smartphone"
-                                    width="50"
-                                ></v-img>
-                                                                <v-img
-                                    :aspect-ratio="1"
-                                    :src="Smartphone"
-                                    width="50"
-                                ></v-img>
-                                                                <v-img
-                                    :aspect-ratio="1"
-                                    :src="Smartphone"
+                                    :src="BASE_URL + value.url"
                                     width="50"
                                 ></v-img>
                             </div>
 
                         </v-col>
                         <v-col>
-                            <div>
-                <p>{{ article.name }}</p>
+                            <div class="my-3">
+                <p>{{ article.nomArticle }}</p>
                 <v-rating
   readonly
   :length="article.averageRating"
@@ -43,17 +28,8 @@
   active-color="primary"
  /> (12 avis)
             </div>
-            <div>Marque : Samsung</div>
-            <div class="my-4">Fiche technique : 
-                <ul>
-                    <li>Ecran : 6.5 pouces</li>
-                    <li>Processeur : Octa-core</li>
-                    <li>Mémoire vive : 4 Go</li>
-                    <li>Stockage interne : 128 Go</li>
-                    <li>Appareil photo : 50 MP + 5 MP + 2 MP</li>
-                    <li>Batterie : 5000 mAh</li>
-                </ul>
-            </div>
+            <div class="my-3">Marque : {{ article.brandName }}</div>
+            <div class="my-3">Description : {{ article.descriptionArticle }}</div>
                         </v-col>
                     </v-row>
 
@@ -90,24 +66,21 @@
         </v-card>
 </template>
 <script lang="ts" setup>
-import Smartphone from '@/assets/smartphone.jpg';
 import { useArticleStore } from '@/store/article.store';
-import { computed } from 'vue';
-import {getArticleById } from '@/services/article.service'
-import { ARTICLES } from "@/constants/article.constant";
 import { useListStore } from '@/store/list.store';
+import type { IArticle } from '@/interfaces/article.interface';
+import {addWishlistItem} from '@/services/wishlist.service'
 const listStore = useListStore();
 const articleStore = useArticleStore()
-const article = computed(() => getArticleById(Number(props.articleId), ARTICLES));
+const BASE_URL = "http://localhost:8080";
 
-const props=defineProps({
-    articleId:{
-        type:Number,
-        required:true
-    }
-})
+
+const props=defineProps<{
+    article: IArticle
+}>()
 
 function addArticleToList(index:number){
-    listStore.list[index].articles.push(article.value)
+    listStore.list[index].articles.push(props.article)
+    addWishlistItem(listStore.list[index].id, props.article.idArticle)
 }
 </script>

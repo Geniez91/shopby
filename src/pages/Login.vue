@@ -47,10 +47,10 @@ async function handleLoginUser(){
         email: email.value,
         password: password.value
     }
-    const token= await loginUser(loginInput);
-    setToken(token);
+    const response= await loginUser(loginInput);
+    setToken(response.token);
     alert('Connexion réussie !')
-    router.push('/Home')
+    router.push('/')
 }
 </script>
 

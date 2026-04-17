@@ -26,6 +26,7 @@ export const useAccountStore=defineStore('account',()=>{
 
  function setToken(newToken: string) {
   token.value = newToken
+  console.log("New token set:", newToken);
   localStorage.setItem("token", newToken)
  }
 

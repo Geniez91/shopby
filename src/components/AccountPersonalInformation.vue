@@ -21,7 +21,7 @@ const country=ref<string>(accountStore.account.country)
 const email=ref<string>(accountStore.account.email)
 const phone=ref<string>(accountStore.account.phone)
 const disabledPersonalInformation=ref<boolean>(true)
-
+    
 function saveChanges(){
     accountStore.updateAccount({
         lastName:name.value,
